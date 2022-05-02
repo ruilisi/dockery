@@ -1,0 +1,15 @@
+FROM ruby:2.7.2-alpine3.12 as base
+WORKDIR /usr/src/app
+RUN echo "http://mirrors.ustc.edu.cn/alpine/v3.12/main/" > /etc/apk/repositories && \
+    echo "http://mirrors.ustc.edu.cn/alpine/v3.12/community/" >> /etc/apk/repositories && \
+    bundle config mirror.https://rubygems.org https://gems.ruby-china.com && \
+    bundle config set without 'development test' && \
+    apk update && \
+    apk add --no-cache tzdata libpq git && \
+    apk add --no-cache autoconf automake build-base postgresql-dev && \
+    ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
+    echo "Asia/Shanghai" > /etc/timezone && \
+    echo 'gem: --no-document' >> ~/.gemrc && \
+    cp ~/.gemrc /etc/gemrc && \
+    chmod +r /etc/gemrc && \
+    gem install bundler:2.3.7
