@@ -8,10 +8,21 @@ Naming this project with `Dockerfy` because it sounds cute, and its phonetic tra
 
 Hope `Dockerfy` improve your dev team's productivity, any pull request is welcome for building image not included.
 
+## Get started
+Most of the scripts are written in [zx](https://github.com/google/zx) which should be installed before building your own:
+```sh
+# building ruby image as an example
+~$ cd ruby 
+~$ ./build.mjs -h
+Usage:
+./build.mjs [--version [3.1.2|3.2|2.7|...]] [-h]
+~$ ./build.mjs --version 3.1.2
+```
 ## Images supported
-| Image               | OS           | Repo                                           | Tags          | Extra Features |
-| --------------------| -------------| ---------------------------------------------- | ------------- | -------------- |  
-| [next.js](./nextjs) | alpine(3.12) | ccr.ccs.tencentyun.com/ruilisi-pub/nextjs-base | 12.1.0,12.0.8 | node-prune     |
+| Image                          | OS     | Repo                | Tags      | Extra Features |
+| -------------------------------| ------ | ------------------- | --------- | -------------- |  
+| [next.js](./nextjs)            | alpine | ruilisi/nextjs-base | 12.1.0    | node-prune     |
+| [ruby 3 + postgres 14](./ruby) | debian | ruilisi/ruby        | 3.1.2,3.2 | node-prune     |
 
 ## Detailed explanation for images
 #### Nextjs
@@ -36,3 +47,6 @@ COPY .next/standalone ./
 COPY .next/static ./.next/static
 COPY .env.production ./.env.production
 ```
+
+#### ruby 3 + postgres 14
+Image for ruby 3 and image for postgres 14 are all available, however, combining both is hard.

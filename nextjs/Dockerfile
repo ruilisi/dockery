@@ -1,4 +1,4 @@
-FROM node:16.13.1-alpine3.12 AS node_base
+FROM node:16-alpine AS node_base
 ENV NODE_ENV production
 ENV NEXT_SHARP_PATH /usr/local/share/.config/yarn/global/node_modules/sharp
 ENV NODE_OPTIONS="--max-old-space-size=8192"
