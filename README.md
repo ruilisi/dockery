@@ -19,10 +19,11 @@ Usage:
 ~$ ./build.mjs --version 3.1.2
 ```
 ## Images supported
-| Image                          | OS     | Repo                | Tags      | Extra Features |
-| -------------------------------| ------ | ------------------- | --------- | -------------- |  
-| [next.js](./nextjs)            | alpine | ruilisi/nextjs-base | 12.1.0    | node-prune     |
-| [ruby 3 + postgres 14](./ruby) | debian | ruilisi/ruby        | 3.1.2,3.2 | node-prune     |
+| Image                          | OS     | Repo                | Tags      |
+| -------------------------------| ------ | ------------------- | --------- |
+| [next.js](./nextjs)            | alpine | ruilisi/nextjs-base | 12.1.0    |
+| [ruby 3 + postgres 14](./ruby) | debian | ruilisi/ruby        | 3.1.2,3.2 |
+| [golang](./golang)              | *     | ruilisi/golang      | *         |
 
 ## Detailed explanation for images
 #### Nextjs
@@ -49,4 +50,9 @@ COPY .env.production ./.env.production
 ```
 
 #### ruby 3 + postgres 14
-Image for ruby 3 and image for postgres 14 are all available, however, combining both is hard.
+Image for ruby 3 and image for postgres 14 are all available, however, combining both is tedious.
+
+This image simply gives you newest experience with `ruby & postgres` without pain!
+
+#### Golang
+Simply wraps offical image with `alpine source` and `goproxy` suitable for Chinese developers.

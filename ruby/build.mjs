@@ -5,7 +5,6 @@ if (argv.h) {
 ./build.mjs [--version [3.1.2|3.2|2.7|...]] [-h]`);
   process.exit();
 }
-console.info("shit");
 const VERSION = argv.version;
 const NAME = "ruby-base";
 const [major] = VERSION.split(".");
