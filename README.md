@@ -9,21 +9,14 @@ Naming this project with `Dockerfy` because it sounds cute, and its phonetic tra
 Hope `Dockerfy` improve your dev team's productivity, any pull request is welcome for building image not included.
 
 ## Get started
-Most of the scripts are written in [zx](https://github.com/google/zx) which should be installed before building your own:
-```sh
-# building ruby image as an example
-~$ cd ruby 
-~$ ./build.mjs -h
-Usage:
-./build.mjs [--version [3.1.2|3.2|2.7|...]] [-h]
-~$ ./build.mjs --version 3.1.2
-```
+Scripts here are written in [google zx](https://github.com/google/zx) which should be installed before trying your own.
 ## Images supported
 | Image                          | OS     | Repo                | Tags      |
 | -------------------------------| ------ | ------------------- | --------- |
 | [next.js](./nextjs)            | alpine | ruilisi/nextjs-base | 12.1.0    |
 | [ruby 3 + postgres 14](./ruby) | debian | ruilisi/ruby        | 3.1.2,3.2 |
-| [golang](./golang)              | *     | ruilisi/golang      | *         |
+| [golang](./golang)             | *     | ruilisi/golang       | *         |
+| [golang-ci](./golang)          | *     | ruilisi/golang-ci    | *         |
 
 ## Detailed explanation for images
 #### Nextjs
@@ -50,9 +43,28 @@ COPY .env.production ./.env.production
 ```
 
 #### ruby 3 + postgres 14
+```sh
+# building ruby image as an example
+~$ cd ruby 
+~$ ./build.mjs -h
+Usage:
+./build.mjs [--version [3.1.2|3.2|2.7|...]] [-h]
+~$ ./build.mjs --version 3.1.2
+```
 Image for ruby 3 and image for postgres 14 are all available, however, combining both is tedious.
 
 This image simply gives you newest experience with `ruby & postgres` without pain!
 
 #### Golang
+```sh
+~$ cd golang; ./build.mjs --tag TAG
+```
 Simply wraps offical image with `alpine source` and `goproxy` suitable for Chinese developers.
+
+#### Golang CI
+```sh
+~$ cd golang; ./build.mjs --tag TAG --ci
+```
+CI for golang requires extra dependencies other than base golang image, such as `revive`, `vet`, `gotestsum`.
+
+A dedicated image `golang-ci` is thus built and any recommendation is welcome on how to make it more general.
