@@ -65,6 +65,10 @@ Simply wraps offical image with `alpine source` and `goproxy` suitable for Chine
 ```sh
 ~$ cd golang; ./build.mjs --tag TAG --ci
 ```
-CI for golang requires extra dependencies other than base golang image, such as `revive`, `vet`, `gotestsum`.
+This image includes neccessary tools or packages useful for CI of golang:
+* `revive` to lint and check golang code.
+* `ruilisi/govet` as an example for using `go vet`.
+* `gotestsum` to print formatted test output.
+* `make`, `gcc` to ensure commands in `makefile` can be executed
 
 A dedicated image `golang-ci` is thus built and any recommendation is welcome on how to make it more general.
