@@ -18,6 +18,12 @@ Scripts here are written in [google zx](https://github.com/google/zx) which shou
 | [golang](./golang)             | *     | ruilisi/golang       | *         |
 | [golang-ci](./golang)          | *     | ruilisi/golang-ci    | *         |
 
+#### alphine
+```sh
+~$ cd alpine; ./build.mjs --tag TAG
+```
+Simply changes mirror of offical image to `mirrors.ustc.edu.cn`.
+
 ## Detailed explanation for images
 #### Nextjs
 Building docker image of nextjs based project with alpine base in China is complicated, cause the following issues need to be resolved:
@@ -59,7 +65,7 @@ This image simply gives you newest experience with `ruby & postgres` without pai
 ```sh
 ~$ cd golang; ./build.mjs --tag TAG
 ```
-Simply wraps offical image with `alpine source` and `goproxy` suitable for Chinese developers.
+Simply changes mirror of offical image to `mirrors.ustc.edu.cn` and adds `goproxy`.
 
 #### Golang CI
 ```sh
