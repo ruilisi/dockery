@@ -32,6 +32,12 @@ Building docker image of nextjs based project with alpine base in China is compl
 * The above libraries can only be installed through repository `https://dl-3.alpinelinux.org/alpine/edge/testing/` currently, and proxy is needed when accessing this repo in some areas.
 * Since proxy is only required during some of the steps, an agile way of doing this is needed (providing the proxy address in host machine and let the container aware of it).
 
+`yarn` configs included to speed up `yarn install` in China:
+| Name             | URL |
+| -----------------| ----|
+| registry         | https://registry.npm.taobao.org            |
+| sentrycli_cdnurl | https://cdn.npm.taobao.org/dist/sentry-cli |
+
 Other tools and configs are also provided in order to make later image building faster and make image size smaller:
 * Use an alpine mirror inside China.
 * Config taobao npm registry.

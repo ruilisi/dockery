@@ -11,6 +11,7 @@ RUN apk add --no-cache libc6-compat && \
     yarn config set registry "https://registry.npm.taobao.org" && \
     http_proxy=${PROXY} https_proxy=${PROXY} yarn global add sharp --no-cache
 
+RUN yarn config set sentrycli_cdnurl https://cdn.npm.taobao.org/dist/sentry-cli
 EXPOSE 80
 ENV PORT 80
 CMD ["node", "server.js"]
